@@ -38,3 +38,5 @@ header nav{min-width:0;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap}heade
 
 .history-card:nth-last-child(-n+2){flex-basis:260px;width:260px}@media(max-width:680px){.history-card:nth-last-child(-n+2){flex-basis:248px;width:248px}}
 .paper-reference h3[id],.publications h2[id]{scroll-margin-top:var(--header-offset,120px)}
+
+.paper-figure{margin:2rem 0;max-width:640px}.paper-figure img{display:block;width:100%;height:auto}.paper-figure figcaption{margin-top:.75rem;color:var(--muted,#6e6e6e);font-size:.78rem;line-height:1.6}
