@@ -48,9 +48,10 @@ header nav{min-width:0;flex-wrap:nowrap;overflow-x:auto;white-space:nowrap}heade
 /* Mobile section navigation; desktop links retain their existing layout. */
 .section-toggle,.section-options{display:none}
 @media(max-width:680px){
-header.mobile-nav-ready nav{position:relative;display:flex;justify-content:space-between;gap:12px;overflow:visible;white-space:normal;margin-top:8px}
+header.mobile-nav-ready nav{position:relative;display:flex;justify-content:flex-end;gap:12px;overflow:visible;white-space:normal;margin-top:8px}
 header.mobile-nav-ready nav>a[data-section]{display:none}
-header .section-toggle{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;flex:1;min-height:44px;padding:8px 0;border:0;background:transparent;color:var(--ink);font:500 12px/1.4 var(--sans);text-align:left;cursor:pointer}
+header .section-toggle{display:flex;align-items:center;justify-content:space-between;gap:5px;min-width:0;flex:0 1 auto;min-height:44px;padding:8px 0;border:0;background:transparent;color:var(--ink);font:500 12px/1.4 var(--sans);text-align:left;cursor:pointer}
+.section-toggle::before{content:"["}.section-toggle::after{content:"]"}
 .section-toggle span:first-child{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .section-toggle span:last-child{flex:none;font-size:18px}
 .section-toggle[aria-expanded=true] span:last-child{transform:rotate(180deg)}
@@ -66,7 +67,9 @@ header .section-options a:last-child{border-bottom:0}
 @media(max-width:680px){
 .mobile-stack>h2{position:sticky;top:calc(var(--header-offset) - 12px);z-index:4;background:var(--paper);padding-block:12px;margin-bottom:24px!important;box-shadow:0 -12px 0 var(--paper)}
 .mobile-stack .home-research,.mobile-stack .personal-grid{display:block}
-.mobile-stack .home-research>article,.mobile-stack .personal-grid>article{position:sticky;top:var(--stack-top);min-height:var(--stack-space);margin:0 0 24px;padding:24px 18px;background:var(--paper);border:1px solid var(--line);border-radius:5px}
+.mobile-stack .home-research>article,.mobile-stack .personal-grid>article{position:sticky;top:var(--stack-top);min-height:var(--stack-space);margin:0 0 18px;padding:20px 18px;background:var(--paper);border:1px solid var(--line);border-radius:5px}
 .mobile-stack article:focus-within{z-index:3}
 .mobile-stack .publications-link{position:relative;z-index:4;background:var(--paper)}
 }
+
+@media(max-width:680px){.mobile-stack article>p:last-child{margin-bottom:0}}

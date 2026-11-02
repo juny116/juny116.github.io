@@ -20,7 +20,7 @@
   nav.prepend(toggle); nav.append(panel); header.classList.add('mobile-nav-ready');
   const allLinks = [...links, ...options];
   const nameFor = id => links.find(a => a.dataset.section === id)?.textContent.trim();
-  function setLabel(text) { label.textContent = text; toggle.setAttribute('aria-label', `${text}. Choose section`); }
+  function setLabel(text) { label.textContent = text === 'Research & Experience' ? 'Research' : text; toggle.setAttribute('aria-label', `${text}. Choose section`); }
   function close(restore = false) {
     panel.hidden = true; toggle.setAttribute('aria-expanded', 'false');
     if (restore) toggle.focus();
@@ -92,12 +92,14 @@
       const heading = section.querySelector(':scope > h2');
       const cards = [...section.querySelectorAll('.home-research > article,.personal-grid > article')];
       const top = header.offsetHeight + heading.offsetHeight + 44;
-      const space = Math.min(440, innerHeight - top - 28);
-      if (space < 260 || cards.some(card => card.scrollHeight + 24 > space)) return;
+      const available = innerHeight - top - 28;
+      if (available < 200) return;
       section.style.setProperty('--stack-top', `${top}px`);
-      section.style.setProperty('--stack-space', `${space}px`);
+      section.style.setProperty('--stack-space', '0px');
       section.classList.add('mobile-stack');
-      if (cards.some(card => card.scrollHeight > space + 2)) section.classList.remove('mobile-stack');
+      const contentHeight = Math.ceil(Math.max(...cards.map(card => card.getBoundingClientRect().height)));
+      if (contentHeight > available) section.classList.remove('mobile-stack');
+      else section.style.setProperty('--stack-space', `${contentHeight}px`);
     });
   }
   addEventListener('resize', sizeStacks);
