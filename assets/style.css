@@ -73,3 +73,13 @@ header .section-options a:last-child{border-bottom:0}
 }
 
 @media(max-width:680px){.mobile-stack article>p:last-child{margin-bottom:0}}
+
+/* Keep the mobile identity and navigation on one line. */
+@media(max-width:680px){
+header.mobile-nav-ready{display:flex;flex-direction:row;align-items:center;gap:10px;padding:12px 0}
+header.mobile-nav-ready .wordmark{font-size:10px;flex:none;letter-spacing:.02em}
+header.mobile-nav-ready nav{flex:1;min-width:0;width:auto;margin-top:0;gap:8px}
+header.mobile-nav-ready .section-toggle{font-size:10px;gap:3px}
+header.mobile-nav-ready nav .nav-publications{font-size:9px;padding-left:8px;letter-spacing:0}
+header.mobile-nav-ready .section-options:not([hidden]){left:auto;right:0;width:min(300px,calc(100vw - 40px))}
+}
